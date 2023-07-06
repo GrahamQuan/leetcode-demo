@@ -40,7 +40,13 @@ const Login: FC<LoginProps> = () => {
         userInput.email,
         userInput.password
       )
-      if (!newUser) return
+      if (!newUser) {
+        toast.error('please create a account first', {
+          position: 'top-center',
+          hideProgressBar: true,
+        })
+        return
+      }
       router.push('/')
     } catch (error: any) {
       toast.error(error.message, {
